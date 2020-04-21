@@ -24,6 +24,9 @@ private slots:
     void checkGenerateEnabled();
 
 private:
+    QString scriptPath() const;
+
+private:
     Ui::MainWindow *ui;
     QStandardItemModel m_model;
     QString m_lastPath;

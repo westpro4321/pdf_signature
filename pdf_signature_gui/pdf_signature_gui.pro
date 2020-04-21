@@ -31,4 +31,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 OTHER_FILES += ../pdf_signature.py \
-            ../sample_data.csv
+            ../sample_data.csv \
+            ../README.md

@@ -116,13 +116,14 @@ void MainWindow::onGenerateClicked()
         }
         p->deleteLater();
     });
-    const auto scriptPath = QStringLiteral("..") + QDir::separator() + "pdf_signature.py";
-    const QStringList params = {ui->pdfLe->text(), ui->userTextLe->text(), ui->csvLe->text(),
+
+    const QStringList params = {scriptPath(),
+                                ui->pdfLe->text(), ui->userTextLe->text(), ui->csvLe->text(),
                                 ui->destLe->text(), QString::number(ui->posSb->value()),
                                 ui->alignCb->currentText(), ui->pagesCb->currentText(),
                                 ui->fontLe->text(), QString::number(ui->fontSizeSb->value()),};
-    qDebug() << Q_FUNC_INFO << scriptPath << params;
-    p->start(scriptPath, params);
+    qDebug() << Q_FUNC_INFO << params;
+    p->start("python", params);
 }
 
 void MainWindow::checkGenerateEnabled()
@@ -130,5 +131,15 @@ void MainWindow::checkGenerateEnabled()
     ui->generatePb->setEnabled(!ui->pdfLe->text().isEmpty() &&
                                (!ui->csvLe->text().isEmpty() || !ui->userTextLe->text().isEmpty()) &&
                                !ui->destLe->text().isEmpty());
+}
+
+QString MainWindow::scriptPath() const
+{
+#ifdef Q_OS_LINUX
+    return QStringLiteral("..") + QDir::separator() + "pdf_signature.py";
+#else
+    return QStringLiteral("..") + QDir::separator() + QStringLiteral("..") + QDir::separator() + "pdf_signature.py";
+#endif
+
 }
 
