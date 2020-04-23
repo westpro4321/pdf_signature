@@ -22,6 +22,7 @@ private slots:
     void onDestClicked();
     void onGenerateClicked();
     void checkGenerateEnabled();
+    void setTextColor(const QColor &color);
 
 private:
     QString scriptPath() const;
@@ -30,5 +31,6 @@ private:
     Ui::MainWindow *ui;
     QStandardItemModel m_model;
     QString m_lastPath;
+    QColor m_textColor;
 };
 #endif // MAINWINDOW_H

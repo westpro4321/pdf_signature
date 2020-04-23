@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QColorDialog>
 #include <QDebug>
 #include <QFile>
 #include <QFileDialog>
@@ -15,14 +16,24 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->csvView->setModel(&m_model);
-    connect(ui->pdfPb, &QPushButton::clicked, this, &MainWindow::onPdfClicked);
-    connect(ui->csvPb, &QPushButton::clicked, this, &MainWindow::onCsvClicked);
-    connect(ui->destPb, &QPushButton::clicked, this, &MainWindow::onDestClicked);
+    setTextColor({Qt::black});
+    connect(ui->pdfTb, &QPushButton::clicked, this, &MainWindow::onPdfClicked);
+    connect(ui->csvTb, &QPushButton::clicked, this, &MainWindow::onCsvClicked);
+    connect(ui->destTb, &QPushButton::clicked, this, &MainWindow::onDestClicked);
     connect(ui->generatePb, &QPushButton::clicked, this, &MainWindow::onGenerateClicked);
     connect(ui->pdfLe, &QLineEdit::textChanged, this, &MainWindow::checkGenerateEnabled);
     connect(ui->userTextLe, &QLineEdit::textChanged, this, &MainWindow::checkGenerateEnabled);
     connect(ui->csvLe, &QLineEdit::textChanged, this, &MainWindow::checkGenerateEnabled);
     connect(ui->destLe, &QLineEdit::textChanged, this, &MainWindow::checkGenerateEnabled);
+    connect(ui->pickColorTB, &QToolButton::clicked, this, [=](){
+        auto *dlg = new QColorDialog(m_textColor, this);
+        dlg->show();
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        connect(dlg, &QColorDialog::colorSelected, [=](auto color){
+            setTextColor(color);
+            dlg->close();
+        });
+    });
 }
 
 MainWindow::~MainWindow()
@@ -119,9 +130,10 @@ void MainWindow::onGenerateClicked()
 
     const QStringList params = {scriptPath(),
                                 ui->pdfLe->text(), ui->userTextLe->text(), ui->csvLe->text(),
-                                ui->destLe->text(), QString::number(ui->posSb->value()),
-                                ui->alignCb->currentText(), ui->pagesCb->currentText(),
-                                ui->fontLe->text(), QString::number(ui->fontSizeSb->value()),};
+                                ui->destLe->text(), QString::number(ui->x->value()),
+                                QString::number(ui->y->value()), ui->pagesCb->currentText(),
+                                ui->fontLe->text(), QString::number(ui->fontSizeSb->value()),
+                                QString::number(m_textColor.rgb())};
     qDebug() << Q_FUNC_INFO << params;
     p->start("python", params);
 }
@@ -131,6 +143,14 @@ void MainWindow::checkGenerateEnabled()
     ui->generatePb->setEnabled(!ui->pdfLe->text().isEmpty() &&
                                (!ui->csvLe->text().isEmpty() || !ui->userTextLe->text().isEmpty()) &&
                                !ui->destLe->text().isEmpty());
+}
+
+void MainWindow::setTextColor(const QColor &color)
+{
+    m_textColor = color;
+    QPalette palette = ui->userTextLe->palette();
+    palette.setColor(ui->userTextLe->foregroundRole(), m_textColor);
+    ui->userTextLe->setPalette(palette);
 }
 
 QString MainWindow::scriptPath() const

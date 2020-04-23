@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>536</height>
+    <width>431</width>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,160 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="pdfPb">
-      <property name="text">
-       <string>Select pdf file</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="0" colspan="2">
-     <widget class="QTableView" name="csvView"/>
-    </item>
-    <item row="10" column="1">
-     <widget class="QLineEdit" name="destLe">
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QPushButton" name="destPb">
-      <property name="text">
-       <string>Select dest dir</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="userTextLe">
-      <property name="text">
-       <string>Ta kopia zostala utworzona dla:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="17" column="1">
-     <widget class="QComboBox" name="pagesCb">
-      <item>
-       <property name="text">
-        <string>First</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>All</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="pdfLe">
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="18" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Font:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="csvLe">
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="17" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Pages:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="16" column="1">
-     <widget class="QComboBox" name="alignCb">
-      <item>
-       <property name="text">
-        <string>Center</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Left</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Right</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="16" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Align</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Text:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Position:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="1">
-     <widget class="QSpinBox" name="posSb">
-      <property name="suffix">
-       <string>mm</string>
-      </property>
-      <property name="minimum">
-       <number>-1000</number>
-      </property>
-      <property name="maximum">
-       <number>1000</number>
-      </property>
-      <property name="value">
-       <number>20</number>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="csvPb">
-      <property name="text">
-       <string>Select csv file</string>
-      </property>
-     </widget>
-    </item>
-    <item row="22" column="0" colspan="2">
-     <widget class="QPushButton" name="generatePb">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string>Generate</string>
-      </property>
-     </widget>
-    </item>
-    <item row="19" column="0">
-     <widget class="QLabel" name="label_6">
-      <property name="text">
-       <string>Font size:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="19" column="1">
+    <item row="9" column="2">
      <widget class="QSpinBox" name="fontSizeSb">
       <property name="suffix">
        <string>pt</string>
@@ -184,10 +31,204 @@
       </property>
      </widget>
     </item>
-    <item row="18" column="1">
+    <item row="10" column="0" colspan="3">
+     <widget class="QPushButton" name="generatePb">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Generate</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0" colspan="2">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Font size:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0" colspan="2">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Pages:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QDoubleSpinBox" name="x">
+      <property name="suffix">
+       <string> inch</string>
+      </property>
+      <property name="minimum">
+       <double>-999.990000000000009</double>
+      </property>
+      <property name="maximum">
+       <double>999.990000000000009</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QComboBox" name="pagesCb">
+      <item>
+       <property name="text">
+        <string>First</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>All</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>X:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Dest dir:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Pdf file:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLineEdit" name="csvLe">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="csvTb">
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="8" column="2">
      <widget class="QLineEdit" name="fontLe">
       <property name="text">
        <string>Arial</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Text:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Csv file:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="2">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Y:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QDoubleSpinBox" name="y">
+      <property name="suffix">
+       <string> inch</string>
+      </property>
+      <property name="minimum">
+       <double>-999.990000000000009</double>
+      </property>
+      <property name="maximum">
+       <double>999.990000000000009</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="destLe">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="destTb">
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0" colspan="3">
+     <widget class="QTableView" name="csvView"/>
+    </item>
+    <item row="1" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="userTextLe">
+        <property name="text">
+         <string>Ta kopia zostala utworzona dla:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="pickColorTB">
+        <property name="text">
+         <string>Pick color</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLineEdit" name="pdfLe">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="pdfTb">
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Font:</string>
       </property>
      </widget>
     </item>
