@@ -33,3 +33,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 OTHER_FILES += ../pdf_signature.py \
             ../sample_data.csv \
             ../README.md
+
+DISTFILES += \
+    ../pdf_watermark.py
+
+RESOURCES +=

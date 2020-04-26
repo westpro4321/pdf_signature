@@ -143,8 +143,8 @@ void MainWindow::onGenerateClicked()
 void MainWindow::checkGenerateEnabled()
 {
     ui->generatePb->setEnabled(!ui->pdfLe->text().isEmpty() &&
-                               (!ui->csvLe->text().isEmpty() || !ui->userTextLe->text().isEmpty()) &&
-                               !ui->destLe->text().isEmpty());
+                               (/*!ui->csvLe->text().isEmpty() || */!ui->userTextLe->text().isEmpty()) /*&&
+                               !ui->destLe->text().isEmpty()*/);
 }
 
 void MainWindow::setTextColor(const QColor &color)
@@ -158,9 +158,9 @@ void MainWindow::setTextColor(const QColor &color)
 QString MainWindow::scriptPath() const
 {
 #ifdef Q_OS_LINUX
-    return QStringLiteral("..") + QDir::separator() + "pdf_signature.py";
+    return QStringLiteral("..") + QDir::separator() + "pdf_watermark.py";
 #else
-    return QStringLiteral("..") + QDir::separator() + QStringLiteral("..") + QDir::separator() + "pdf_signature.py";
+    return QStringLiteral("..") + QDir::separator() + QStringLiteral("..") + QDir::separator() + "pdf_watermark.py";
 #endif
 
 }

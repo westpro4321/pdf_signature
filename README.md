@@ -2,3 +2,4 @@
 #Test with Python 2.7
 pip install fpdf
 pip install PyPDF2
+pip install reportlab
