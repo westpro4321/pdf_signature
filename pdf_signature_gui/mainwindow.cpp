@@ -110,6 +110,7 @@ void MainWindow::onDestClicked()
 
 void MainWindow::onGenerateClicked()
 {
+    ui->generatePb->setEnabled(false);
     auto *p = new QProcess(this);
     p->setProcessChannelMode(QProcess::ForwardedChannels);
     connect(p, &QProcess::errorOccurred, [this, p](const auto &error){
@@ -125,6 +126,7 @@ void MainWindow::onGenerateClicked()
         {
             QMessageBox::warning(this, "Warning", tr("Exit code: %1\nExit status: %2").arg(exitCode).arg(exitStatus));
         }
+        ui->generatePb->setEnabled(true);
         p->deleteLater();
     });
 
